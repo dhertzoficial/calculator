@@ -9,28 +9,28 @@ def cabecalho():
     print("")
 
 def transforma_sinal():
-    global sinal
+    global signal
     global sinal2
-    if sinal == 1:
+    if signal == 1:
         sinal2 = "+"
-    elif sinal == 2:
+    elif signal == 2:
         sinal2 = "-"
-    elif sinal == 3:
+    elif signal == 3:
         sinal2 = "x"
-    elif sinal == 4:
+    elif signal == 4:
         sinal2 = "/"
     else:
         print("ERRO. PROVAVELMENTE VOCE ESCOLHEU UMA OPCAO DIFERENTE DE 1, 2, 3 ou 4.")
 
 def calculo():
     global resultado
-    if sinal == 1:
+    if signal == 1:
         resultado = num1 + num2
-    elif sinal == 2:
+    elif signal == 2:
         resultado = num1 - num2
-    elif sinal == 3:
+    elif signal == 3:
         resultado = num1 * num2
-    elif sinal == 4:
+    elif signal == 4:
         if num2 == 0:
             print("\nErro: divisao por zero\n")
             sys.exit()
@@ -40,10 +40,13 @@ def calculo():
 cabecalho()
 
 num1 = float(input("Digite o primeiro numero: "))
-sinal = int(input("Digite uma opcao entre: SOMAR(1), SUBTRAIR(2), MULTIPLICAR(3) ou DIVIDIR(4): "))
+signal = int(input("Digite uma opcao entre: SOMAR(1), SUBTRAIR(2), MULTIPLICAR(3) ou DIVIDIR(4): "))
 num2 = float(input("Digite o segundo numero: "))
+
+# ESSA PARTE DO CODIGO E SOMENTE PARA VISUALIZACAO NO CONSOLE
 sinal2 = ""
 transforma_sinal()
+
 resultado = 0
 calculo()
 
