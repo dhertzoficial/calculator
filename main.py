@@ -1,14 +1,14 @@
 import sys
 from crayons import red
 
-def cabecalho():
+def reader():
     print("")
     print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print("CALCULATOR")
     print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
     print("")
 
-def transforma_sinal():
+def transform_signal():
     global signal
     global sinal2
     if signal == 1:
@@ -20,39 +20,40 @@ def transforma_sinal():
     elif signal == 4:
         sinal2 = "/"
     else:
-        print("ERRO. PROVAVELMENTE VOCE ESCOLHEU UMA OPCAO DIFERENTE DE 1, 2, 3 ou 4.")
+        print("ERROR. YOU MUST SELECT AN OPTION BETWEEN 1 and 4.")
 
-def calculo():
-    global resultado
+def calculation():
+    global result
     if signal == 1:
-        resultado = num1 + num2
+        result = num1 + num2
     elif signal == 2:
-        resultado = num1 - num2
+        result = num1 - num2
     elif signal == 3:
-        resultado = num1 * num2
+        result = num1 * num2
     elif signal == 4:
         if num2 == 0:
-            print("\nErro: divisao por zero\n")
+            print("\nErro: division by zero\n")
             sys.exit()
         else:
-            resultado = num1 / num2
+            result = num1 / num2
 
-cabecalho()
+reader()
 
-num1 = float(input("Digite o primeiro numero: "))
-signal = int(input("Digite uma opcao entre: SOMAR(1), SUBTRAIR(2), MULTIPLICAR(3) ou DIVIDIR(4): "))
-num2 = float(input("Digite o segundo numero: "))
+num1 = float(input("Enter the first number: "))
+signal = int(input("Enter one option between 1 and 4: ADD(1), SUBTRACT(2), MULTIPLY(3) ou DIVIDE(4): "))
+num2 = float(input("Enter the second number: "))
 
-# ESSA PARTE DO CODIGO E SOMENTE PARA VISUALIZACAO NO CONSOLE
+# THIS PART OF THE CODE IS ONLY FOR VIEWING ON THE CONSOLE
+# 
 sinal2 = ""
-transforma_sinal()
+transform_signal()
 
-resultado = 0
-calculo()
+result = 0
+calculation()
 
-print(f"\nVoce solicitou calcular o seguinte: {num1} {sinal2} {num2}")
+print(f"\nYou request to calculate the following {num1} {sinal2} {num2}")
 print("")
-print(red(f"E o resultado do calculo e: {resultado}"))
+print(red(f"And the result of the calculation is: {result}"))
 print("")
 
 
